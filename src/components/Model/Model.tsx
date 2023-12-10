@@ -14,8 +14,8 @@ const Model: FC<ModelProps & MeshProps> = ({ name, ...props }) => {
   const { current } = useAppSelector((state) => state.transform);
   // Fetching the GLTF, nodes is a collection of all the meshes
   // It's cached/memoized, it only gets loaded and parsed once
-  const { nodes } = useGLTF('/compressed.glb')
-  console.log(nodes)
+  const { children } = useFBX('/Scene.fbx')
+  console.log(children)
   // Feed hover state into useCursor, which sets document.body.style.cursor to pointer|auto
   const [hovered, setHovered] = useState(false)
   useCursor(hovered)
@@ -36,8 +36,8 @@ const Model: FC<ModelProps & MeshProps> = ({ name, ...props }) => {
       onPointerOver={(e) => (e.stopPropagation(), setHovered(true))}
       onPointerOut={() => setHovered(false)}
       name={name}
-      geometry={nodes[name].geometry}
-      material={nodes[name].material}
+      geometry={children[0].geometry}
+      material={children[0].material}
       material-color={current === name ? '#ff6080' : 'white'}
       {...props}
       dispose={null}
