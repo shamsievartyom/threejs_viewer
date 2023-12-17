@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+export const modes = ['translate', 'rotate', 'scale'] as const
+
 interface TransformState {
   current: string | null;
   mode: number;
@@ -17,12 +19,12 @@ export const transformSlice = createSlice({
     setCurrent: (state, action: PayloadAction<string | null>) => {
       state.current = action.payload;
     },
-    setMode: (state) => {
-      state.mode = (state.mode + 1) % 3;
+    switchMode: (state) => {
+      state.mode = (state.mode + 1) % modes.length;
     },
   },
 });
 
-export const { setCurrent, setMode } = transformSlice.actions;
+export const { setCurrent, switchMode } = transformSlice.actions;
 
 export default transformSlice.reducer;

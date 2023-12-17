@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState: THREE.Group[] = [];
+const initialState: string[] = [];
 
 export const uploadSclice = createSlice({
   name: 'upload',
   initialState,
   reducers: {
-    addObject: (state, action: PayloadAction<THREE.Group>) => {
+    addObject: (state, action: PayloadAction<string>) => {
         state.push(action.payload);
     },
   },
