@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import styles from './App.module.css'
 import { Canvas } from "@react-three/fiber";
 import Box from "../../components/Box/Box";
