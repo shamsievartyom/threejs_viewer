@@ -24,7 +24,6 @@ const Mesh: FC<MeshProps> = ({ object3D }) => {
     return (
         
         <mesh
-            // Click sets the mesh as the new target
             onClick={(e) => { e.stopPropagation(); dispatch(setCurrent(object3D.name)); }}
             onContextMenu={(e) => {
                 if (current === object3D.name) {
@@ -32,14 +31,16 @@ const Mesh: FC<MeshProps> = ({ object3D }) => {
                     dispatch(switchMode());
                 }
             }}
+            castShadow
+            receiveShadow
             position={object3D.position}
             rotation={object3D.rotation}
             scale={object3D.scale}
             onPointerOver={(e) => (e.stopPropagation(), setHovered(true))}
             onPointerOut={() => setHovered(false)}
             name={object3D.name}
-            geometry={object3D instanceof THREE.Mesh ? object3D.geometry : undefined}
-            material={object3D instanceof THREE.Mesh ? object3D.material : undefined}   
+            geometry={object3D.geometry}
+            material={object3D.material}   
             material-color={current === object3D.name ? '#ff6080': 'white'}
             dispose={null}
         />

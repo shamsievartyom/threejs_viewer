@@ -9,7 +9,7 @@ const Controls = () => {
     return (
         <>
             {/* As of drei@7.13 transform-controls can refer to the target by children, or the object prop */}
-            {current && <TransformControls object={scene.getObjectByName(current)} mode={modes[mode]} />}
+            {current && <TransformControls object={scene.getObjectByName(current)} mode={modes[mode]}/>}
             {/* makeDefault makes the controls known to r3f, now transform-controls can auto-disable them when active */}
             <OrbitControls makeDefault />
         </>

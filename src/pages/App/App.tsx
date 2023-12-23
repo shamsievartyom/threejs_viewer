@@ -12,7 +12,7 @@ import { setCurrent } from '../../redux/slices/transformSlice';
 
 const App = () => {
 
-  const ListOfObject3D = useAppSelector(store=>store.upolad)
+  const ListOfObject3D = useAppSelector(store => store.upolad)
 
   const dispatch = useAppDispatch()
 
@@ -24,17 +24,20 @@ const App = () => {
           className={styles.canvas}
           onPointerMissed={(e) => e.type === 'click' && dispatch(setCurrent(null))}
           camera={{
+            fov: 75,
+            near: 0.1,
+            far: 10000,
             position: [150, 200, 350],
           }}
         >
           <Suspense fallback={<Loader />}>
 
-            {ListOfObject3D.map((url)=>{
-                return <FBXModel url={url} key={url}/>
+            {ListOfObject3D.map((url) => {
+              return <FBXModel url={url} key={url} />
             })}
-          
-            <ambientLight color="white" intensity={1} />
-            <pointLight intensity={70000} position={[300, 100, 100]} />
+
+            {/* <ambientLight castShadow color="white" intensity={1} /> */}
+            <pointLight distance={1000} castShadow intensity={70000} position={[300, 400, 100]} />
             <Box position={[0, 100, 0]} scale={20} />
             <Controls />
           </Suspense>
