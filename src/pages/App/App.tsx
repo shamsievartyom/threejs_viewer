@@ -8,11 +8,12 @@ import FileUploader from '../../components/FileUploader/FileUploader';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import FBXModel from '../../components/FBXModel/FBXModel';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { setCurrent } from '../../redux/slices/transformSlice';
+import { setCurrent, switchMode } from '../../redux/slices/transformSlice';
 
 const App = () => {
 
   const ListOfObject3D = useAppSelector(store => store.upolad)
+  // const { current } = useAppSelector(store => store.transform)
 
   const dispatch = useAppDispatch()
 
@@ -23,6 +24,10 @@ const App = () => {
           shadows={true}
           className={styles.canvas}
           onPointerMissed={(e) => e.type === 'click' && dispatch(setCurrent(null))}
+          onContextMenu={(e) => {
+              e.stopPropagation();
+              dispatch(switchMode());
+          }}
           camera={{
             fov: 75,
             near: 0.1,
@@ -42,8 +47,8 @@ const App = () => {
               castShadow
               intensity={100000}
               position={[300, 400, 100]}
-              shadow-mapSize-width={1024*4}
-              shadow-mapSize-height={1024*4}
+              shadow-mapSize-width={1024 * 4}
+              shadow-mapSize-height={1024 * 4}
             />
             <Box position={[0, 100, 0]} scale={20} />
             <Controls />
