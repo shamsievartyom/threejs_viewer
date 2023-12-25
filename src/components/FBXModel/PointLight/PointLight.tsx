@@ -49,7 +49,9 @@ const PointLight: FC<PointLightProps> = ({ object3D }) => {
             <pointLight
                 distance={1000}
                 castShadow
-                intensity={object3D.intensity * 12.57}
+                intensity={object3D.intensity * 12.57 * 10}
+                shadow-mapSize-width={1024 * 2}
+                shadow-mapSize-height={1024 * 2}
             />
             <mesh
                 material-color={current === object3D.name ? '#ff6080' : 'white'}

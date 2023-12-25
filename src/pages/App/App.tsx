@@ -37,7 +37,14 @@ const App = () => {
             })}
 
             {/* <ambientLight castShadow color="white" intensity={1} /> */}
-            <pointLight distance={1000} castShadow intensity={70000} position={[300, 400, 100]} />
+            <pointLight
+              distance={1000}
+              castShadow
+              intensity={100000}
+              position={[300, 400, 100]}
+              shadow-mapSize-width={1024*4}
+              shadow-mapSize-height={1024*4}
+            />
             <Box position={[0, 100, 0]} scale={20} />
             <Controls />
           </Suspense>
