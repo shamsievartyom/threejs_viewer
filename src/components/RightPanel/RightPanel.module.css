@@ -1,0 +1,9 @@
+.right_panel{
+    display: flex;
+    padding: 20px;
+    border-width: 0 0 0 3px;
+    border-color: aqua;
+    border-style: solid;
+    flex-direction: column;
+    min-width: 300px;
+  }

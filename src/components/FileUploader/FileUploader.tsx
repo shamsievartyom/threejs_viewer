@@ -1,6 +1,7 @@
 import { ChangeEvent, FC } from 'react'
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { addObject } from '../../redux/slices/upoadSlice';
+import styles from './FileUploader.module.css'
 
 const FileUploader: FC = () => {
 
@@ -14,8 +15,9 @@ const FileUploader: FC = () => {
     };
 
     return (
-        <div>
-            <input type="file" onChange={handleFileChange} />
+        <div className={styles.container}>
+            <label htmlFor="files" className={styles.label}>FBX</label>
+            <input className={styles.input} id="files" type="file" accept='.fbx' onChange={handleFileChange} />
         </div>
     );
 }

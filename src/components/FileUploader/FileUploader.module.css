@@ -1,0 +1,12 @@
+.container {
+    width: max-content;
+}
+
+.label {
+    color: pink;
+    border: 2px #404040 solid;
+}
+
+.input {
+    display: none;
+}
