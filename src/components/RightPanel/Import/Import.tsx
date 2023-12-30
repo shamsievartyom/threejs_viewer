@@ -1,10 +1,10 @@
-import React from 'react'
 import FileUploader from '../../FileUploader/FileUploader'
+import styles from './Import.module.css'
 
 const Import = () => {
     return (
         <>
-            <h1>Import</h1>
+            <h1 className={styles.description}>Select format</h1>
             <FileUploader />
         </>
     )

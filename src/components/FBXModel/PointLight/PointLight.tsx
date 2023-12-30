@@ -26,6 +26,7 @@ const PointLight: FC<PointLightProps> = ({ object3D }) => {
     const dispatch = useAppDispatch();
 
     const { current } = useAppSelector((state) => state.transform);
+    const { shadowResolution } = useAppSelector((state) => state.scene);
 
     const [hovered, setHovered] = useState(false)
     useCursor(hovered)
@@ -44,8 +45,8 @@ const PointLight: FC<PointLightProps> = ({ object3D }) => {
                 distance={1000}
                 castShadow
                 intensity={object3D.intensity * 12.57 * 10}
-                shadow-mapSize-width={1024 * 2}
-                shadow-mapSize-height={1024 * 2}
+                shadow-mapSize-width={shadowResolution}
+                shadow-mapSize-height={shadowResolution}
             />
             <mesh
                 material-color={current === object3D.name ? '#ff6080' : 'white'}

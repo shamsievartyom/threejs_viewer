@@ -1,0 +1,24 @@
+.main_list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    gap: 5px;
+}
+
+.list_of_inputs{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.object_name {
+    font-size: 20px;
+    margin: 0;
+}
+
+.input_title {
+    font-size: 20px;
+    margin: 0;
+}

@@ -2,8 +2,26 @@
     display: flex;
     padding: 20px;
     border-width: 0 0 0 3px;
-    border-color: aqua;
+    border-color: rgb(75,81,191);
     border-style: solid;
     flex-direction: column;
     min-width: 300px;
+    gap: 20px;
+  }
+
+  .list_of_buttons{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    gap: 10px;
+  }
+
+  .button {
+    margin: 0;
+  }
+
+  .button_active {
+    background-color: rgb(75,81,191);
   }
