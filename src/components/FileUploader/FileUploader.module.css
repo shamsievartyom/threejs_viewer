@@ -1,0 +1,18 @@
+.container {
+    width: max-content;
+}
+
+.label {
+    border: 2px #404040 solid;
+    padding: 5px 50px;
+    cursor: pointer;
+    transition: border-color 0.25s;
+
+    &:hover {
+        border-color: #646cff;
+    }
+}
+
+.input {
+    display: none;
+}

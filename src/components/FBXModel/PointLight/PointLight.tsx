@@ -2,7 +2,7 @@ import { FC, useRef, useState } from 'react'
 import { useCursor } from "@react-three/drei";
 import { useAppDispatch } from '../../../hooks/useAppDispatch';
 import { useAppSelector } from '../../../hooks/useAppSelector';
-import { setCurrent, switchMode } from '../../../redux/slices/transformSlice';
+import { setCurrent } from '../../../redux/slices/transformSlice';
 import * as THREE from 'three';
 import { useFrame, useThree } from '@react-three/fiber';
 
@@ -26,6 +26,7 @@ const PointLight: FC<PointLightProps> = ({ object3D }) => {
     const dispatch = useAppDispatch();
 
     const { current } = useAppSelector((state) => state.transform);
+    const { shadowResolution } = useAppSelector((state) => state.scene);
 
     const [hovered, setHovered] = useState(false)
     useCursor(hovered)
@@ -33,12 +34,6 @@ const PointLight: FC<PointLightProps> = ({ object3D }) => {
     return (
         <group
             onClick={(e) => { e.stopPropagation(); dispatch(setCurrent(object3D.name)); }}
-            onContextMenu={(e) => {
-                if (current === object3D.name) {
-                    e.stopPropagation();
-                    dispatch(switchMode());
-                }
-            }}
             position={object3D.position}
             onPointerOver={(e) => (e.stopPropagation(), setHovered(true))}
             onPointerOut={() => setHovered(false)}
@@ -49,7 +44,9 @@ const PointLight: FC<PointLightProps> = ({ object3D }) => {
             <pointLight
                 distance={1000}
                 castShadow
-                intensity={object3D.intensity * 12.57}
+                intensity={object3D.intensity * 12.57 * 10}
+                shadow-mapSize-width={shadowResolution}
+                shadow-mapSize-height={shadowResolution}
             />
             <mesh
                 material-color={current === object3D.name ? '#ff6080' : 'white'}
