@@ -1,7 +1,7 @@
-import Input from './Input/Input'
 import { useAppSelector } from '../../../hooks/useAppSelector'
 import { useAppDispatch } from '../../../hooks/useAppDispatch'
 import { changeItensity, changeShadowResolution } from '../../../redux/slices/sceneSlice'
+import DefaultInput from '../../DefaultInput/DefaultInput'
 
 const SceneSettings = () => {
 
@@ -11,7 +11,7 @@ const SceneSettings = () => {
 
   return (
     <>
-      <Input
+      <DefaultInput
         value={ambientLigth}
         type='range'
         min={0}
@@ -19,7 +19,7 @@ const SceneSettings = () => {
         onChange={(e) => { dispatch(changeItensity(Number(e.target.value))) }}
         labelText='Ambient ligth itensity'
         step={0.05} />
-      <Input
+      <DefaultInput
         value={shadowResolution}
         type='range'
         min={1024}
