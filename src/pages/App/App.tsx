@@ -1,7 +1,7 @@
 import { Suspense, useState } from 'react'
 import styles from './App.module.css'
 import { Canvas } from "@react-three/fiber";
-import Box from "../../components/Box/Box";
+// import Box from "../../components/Box/Box";
 import Loader from '../../components/Loadeer/Loader';
 import Controls from '../../components/Controls/Controls';
 import { useAppSelector } from '../../hooks/useAppSelector';
@@ -42,7 +42,7 @@ const App = () => {
             {listOfObject3D.map((url) => {
               return <FBXModel url={url} key={url} />
             })}
-            <pointLight
+            {/* <pointLight
               distance={1000}
               castShadow
               intensity={100000}
@@ -50,7 +50,7 @@ const App = () => {
               shadow-mapSize-width={1024 * 4}
               shadow-mapSize-height={1024 * 4}
             />
-            <Box position={[0, 100, 0]} scale={20} />
+            <Box position={[0, 100, 0]} scale={20} /> */}
             <Controls />
             <ambientLight intensity={ambientLightItensity} />
           </Suspense>
