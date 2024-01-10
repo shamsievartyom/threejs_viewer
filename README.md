@@ -1,30 +1,92 @@
-# React + TypeScript + Vite
+# ThreeJS Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## An interactive 3D object viewer built with Three.js, React, and TypeScript.
 
-Currently, two official plugins are available:
+## Content
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. [Link to Application](#link-to-application)
+2. [How to use](#how-to-use)
+3. [Build and Run Instructions](#build-and-run-instructions)
+4. [Libraries](#libraries)
 
-## Expanding the ESLint configuration
+## Link to Application
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+https://shamsievartyom.github.io/threejs_viewer/
 
-- Configure the top-level `parserOptions` property like this:
+## How to use
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1. Import 3D object into the scene
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+You can add multiple objects to the scene, but this scenario requires that all meshes added to the scene have different names.
+
+    import > FBX
+
+2. Select object
+
+You can select a mesh or point light and then transform the selected object or change parameters of the point light.
+
+    Left click on the object that you want to be selected.
+
+3. Transform
+
+Select an object, then you can transform the object using the "Object" menu. Also, you can select an object and use transform controls.
+
+    1 Select object > Go to "Object" in menu > Change input values
+    2 Select object > Drag transform controls (for changing transform control mode use Right click)
+
+4. Change light intensity and distance
+
+Select a point light, then you get access to light parameters in the "Object" menu.
+
+    Select object > Go to "Object" in menu > Change input values
+
+5. Scene settings
+
+You can change default settings in the "Scene" menu (changing the Shadow Resolution only works before importing objects).
+
+    Go to "Scene" > Change input values
+
+## Build and Run Instructions
+
+1. Preparing the Working Environment
+
+Ensure that you have Node.js and npm installed. If not, install them from the official [Node.js website](https://nodejs.org/).
+Check the versions of Node.js and npm to make sure they are present by running:
+
+    node -v
+    npm -v
+
+2. Cloning the Repository
+
+Clone your project repository to your local computer using the command:
+
+    git clone https://github.com/MostBridge/Frontend
+
+Navigate to the project folder:
+
+    cd Frontend
+
+3. Installing Dependencies
+
+In the project's root directory, run the following command to install all necessary dependencies:
+
+    npm install
+
+4. Running the Project
+
+To start the project, use the following command:
+
+    npm run dev
+
+For building, use the following command:
+
+    npm run build
+
+## Libraries
+
+Project written with these libraries:
+- React
+- Redux toolkit
+- TypeScript
+- Vite
+- React Three Fiber
